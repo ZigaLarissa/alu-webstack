@@ -8,8 +8,8 @@ function audit_subdomain {
     sub=$1
     query_result=$(dig $sub.$domain +short)
     if [[ -n $query_result ]]; then
-        record_type=$(echo $query_result | awk '{print toupper($1)}')
-        destination=$(echo $query_result | awk '{print $2}')
+        destination=$(echo $query_result | awk '{print toupper($1)}')
+        record_type=$(echo $query_result | awk '{print $0}')
         echo "The subdomain $sub is a $record_type record and points to $destination"
     fi
 }
