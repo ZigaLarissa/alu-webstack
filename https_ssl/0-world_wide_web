@@ -10,7 +10,7 @@ function audit_subdomain {
     if [[ -n $query_result ]]; then
         record_type=$(echo $query_result | awk '{print toupper($1)}')
         destination=$(echo $query_result | awk '{print $2}')
-        echo "The subdomain $sub is a $record_type record and points to $destination"
+        echo "The subdomain $sub is a A record and points to $record_type"
     fi
 }
 
