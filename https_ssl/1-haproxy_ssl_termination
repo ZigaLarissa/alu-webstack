@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# second line always a comment.
+
+sudo certbot certonly --standalone -d www.holberton.online
+
+frontend www-https
+    bind *:443 ssl crt /etc/letsencrypt/live/www.holberton.onlinewww.holberton.online/fullchain.pem
+    mode http
+    default_backend www-backend
+
+backend www-backend
+    mode http
+    server web1 192.0.2.1:80
